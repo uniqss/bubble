@@ -6,14 +6,6 @@ import (
 	"net/http"
 )
 
-/*
- url     --> controller  --> logic   -->    model
-请求来了  -->  控制器      --> 业务逻辑  --> 模型层的增删改查
-*/
-
-func IndexHandler(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.html", nil)
-}
 
 func CreateTodo(c *gin.Context) {
 	// 前端页面填写待办事项 点击提交 会发请求到这里
