@@ -6,5 +6,6 @@ require (
 	github.com/gin-gonic/gin v1.5.0
 	github.com/jinzhu/gorm v1.9.12
 	github.com/smartystreets/goconvey v1.6.4 // indirect
+	go.uber.org/zap v1.16.0
 	gopkg.in/ini.v1 v1.55.0
 )
