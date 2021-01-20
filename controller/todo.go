@@ -8,9 +8,9 @@ import (
 	"net/http"
 )
 
-func CreateTodo(c *gin.Context) {
+func TodoCreate(c *gin.Context) {
 	log := Util.ZLog
-	log.Debug("CreateTodo", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
+	log.Debug("TodoCreate", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
 	// 前端页面填写待办事项 点击提交 会发请求到这里
 	// 1. 从请求中把数据拿出来
 	var todo models.Todo
@@ -29,9 +29,9 @@ func CreateTodo(c *gin.Context) {
 	}
 }
 
-func GetTodoList(c *gin.Context) {
+func TodoGetAll(c *gin.Context) {
 	log := Util.ZLog
-	log.Debug("GetTodoList", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
+	log.Debug("TodoGetAll", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
 	// 查询todo这个表里的所有数据
 	todoList, err := models.GetAllTodo()
 	if err != nil {
@@ -41,9 +41,9 @@ func GetTodoList(c *gin.Context) {
 	}
 }
 
-func UpdateATodo(c *gin.Context) {
+func TodoUpdate(c *gin.Context) {
 	log := Util.ZLog
-	log.Debug("UpdateATodo", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
+	log.Debug("TodoUpdate", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
 	id, ok := c.Params.Get("id")
 	if !ok {
 		c.JSON(http.StatusOK, gin.H{"error": "无效的id"})
@@ -62,9 +62,9 @@ func UpdateATodo(c *gin.Context) {
 	}
 }
 
-func DeleteATodo(c *gin.Context) {
+func TodoDelete(c *gin.Context) {
 	log := Util.ZLog
-	log.Debug("DeleteATodo", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
+	log.Debug("TodoDelete", zap.String("goid", Util.GetCurrentGoroutineIdStr()))
 	id, ok := c.Params.Get("id")
 	if !ok {
 		c.JSON(http.StatusOK, gin.H{"error": "无效的id"})
